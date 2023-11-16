@@ -7,7 +7,7 @@ public class Circular {
     private int [] elementos;
     
     // Constructor que nos da el tamaño del arreglo
-    public Circular(int size) {
+    public void AsignarTamano(int size) {
         tamano = size;
         elementos = new int[tamano];
         punteroInicial = punteroFinal = cantidadAgregados = 0;
@@ -44,7 +44,9 @@ public class Circular {
             }
         } else {
             JOptionPane.showMessageDialog(null, 
-            "Cola llena. No puede ingresar el numero " + numero);
+            "Desbordamiento - Cola llena. No puede ingresar el numero " + numero, 
+            "Error", 
+            JOptionPane.ERROR_MESSAGE);
         }
     }
     public int Extraer() {
@@ -59,25 +61,23 @@ public class Circular {
     }
     // Método para imprimir el contenido de la cola circular
     public void imprimirColaCircular() {
-        if (!ColaCircularVacia()) {
-            String colaCircularInvertida = "";
+        String colaCircularInvertida = "";
         
-            for (int i = (punteroFinal - 1 + tamano) % tamano; i != punteroInicial; i = (i - 1 + tamano) % tamano) {
+        if (!ColaCircularVacia()) {
+            for  (int i = (punteroFinal - 1 + tamano) % tamano; i != punteroInicial; i = (i - 1 + tamano) % tamano) {
                 colaCircularInvertida += elementos[i] + " ";
+            }
         }
-
         if (ColaCircularVacia()) {
             JOptionPane.showMessageDialog(null, 
             colaCircularInvertida + "\nFrente: 0\n Final: 0",         
             "Cola Circular", 
             JOptionPane.PLAIN_MESSAGE);
-            System.out.println("");
         } else {
             JOptionPane.showMessageDialog(null, 
-            colaCircularInvertida + "\nFrente: " +  elementos[punteroInicial] + "\nFinal: " + elementos[(punteroFinal - 1 + tamano) % tamano],         
+            colaCircularInvertida + "\nFrente: " +  punteroInicial + "\nFinal: " + punteroFinal,         
             "Cola Circular", 
             JOptionPane.PLAIN_MESSAGE);
         }
     }
-}
 }

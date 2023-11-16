@@ -148,7 +148,10 @@ public class Principal {
                                             JOptionPane.showMessageDialog(null, "Se extrajo un nodo con el valor: " 
                                                     + colaC.Extraer());
                                         } else {
-                                            JOptionPane.showMessageDialog(null, "La cola circular esta vacía");
+                                            JOptionPane.showMessageDialog(null, 
+                                            "Error. Subdesbordamiento - Cola Vacia", 
+                                            "Error", 
+                                            JOptionPane.ERROR_MESSAGE);
                                         }
                                         break;
                                     case 3:
