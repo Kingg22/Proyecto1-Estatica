@@ -5,15 +5,15 @@ import javax.swing.JOptionPane;
 public class Principal {
     public static void main(String[] args) {
         // declaracion de variables
-        int opcion1 = 0, opcion2 = 0, opcion3 = 0, opcion4 = 0, nodo_information;  //nodo = 0, nodo_informacion = 0;
+        int opcion1 = 0, opcion2 = 0, opcion3 = 0, opcion4 = 0, nodo_information, nodo_informacion = 0;  //nodo = 0, ;
         String opcion5[] = { "Presentacion", "Pila", "Cola Simple", "Cola Circular", "Salir"};
         String opcion6[] = { "Insertar", "Eliminar", "Mostrar Pila", "Regresar" };
-        //String opcion7[] = { "Insertar", "Eliminar", "Mostrar Cola Simple", "Regresar" };
+        String opcion7[] = { "Ingrese el tamano", "Insertar", "Eliminar", "Mostrar Cola Simple", "Regresar" };
         String opcion8[] = { "Ingrese el tamano", "Insertar", "Eliminar", "Mostrar Cola Circular", "Regresar"};
 
         // creacion de objetos de todas las clases
         //Pila pila = new Pila();
-        //Cola cola = new Cola();
+        Cola cola = new Cola();
         Circular colaC = new Circular();
         
         do {
@@ -78,9 +78,10 @@ public class Principal {
                         } while (opcion2 != 8);
                         break;
                     case 2:
-                        do {/*
+                        do {
                                 opcion3 = JOptionPane.showOptionDialog(null,
                                         "                                                                      Menú\n\n"
+                                        + "0. Ingrese el tamano del arreglo\n"
                                         + "1. Insertar un elemento\n"
                                         + "2. Extraer un elemento\n"
                                         + "3. Mostrar contenido de la Cola\n"
@@ -93,11 +94,16 @@ public class Principal {
                 
                                 switch (opcion3) {
                                     case 0:
+                                        int size = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                                "Porfavor ingresa el tamaño del arreglo"));
+                                        cola.AsignarTamano(size);
+                                        break;
+                                    case 1:
                                         nodo_informacion = Integer.parseInt(JOptionPane.showInputDialog(null,
                                                 "Porfavor ingresa el valor a guardar."));
                                         cola.Insertar(nodo_informacion);
                                         break;
-                                    case 1:
+                                    case 2:
                                         if (!cola.ColaVacia()) {
                                             JOptionPane.showMessageDialog(null, "Se extrajo un elemento con el valor: " 
                                                     + cola.Extraer());
@@ -105,17 +111,17 @@ public class Principal {
                                             JOptionPane.showMessageDialog(null, "La cola esta vacía");
                                         }
                                         break;
-                                    case 2:
-                                        cola.MostrarContenido();
-                                        break;
                                     case 3:
-                                        opcion3 = 4;
+                                        cola.ImprimirCola();
+                                        break;
+                                    case 4:
+                                        opcion3 = 5;
                                         break;
                                     default:
                                         JOptionPane.showMessageDialog(null, "Opción no dispobible.");
                                         break;
-                                }*/
-                        } while (opcion3 != 4);
+                                }
+                        } while (opcion3 != 5);
                         break;
                     case 3: 
                         do {
