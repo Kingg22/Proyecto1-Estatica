@@ -38,8 +38,8 @@ public class Principal {
                         do {
                                 opcion2 = JOptionPane.showOptionDialog(null,
                                         "                                      Menú\n\n"
-                                        + "1. Insertar un nodo\n"
-                                        + "2. Eliminar un nodo\n"
+                                        + "1. Insertar un elemento\n"
+                                        + "2. Eliminar un elemento\n"
                                         + "3. Mostrar contenido de la Pila\n"
                                         + "4. Regresar.\n\n", 
                                         "Operaciones con Pilas", 
@@ -52,12 +52,12 @@ public class Principal {
                                 switch (opcion2) {
                                     case 0:
                                         nodo = Integer.parseInt(JOptionPane.showInputDialog(null, 
-                                                "Porfavor ingresa el valor a guardar en el nodo"));
+                                                "Porfavor ingresa el valor a guardar"));
                                         pila.InsertarNodo(nodo);
                                         break;
                                     case 1:
                                         if(!pila.PilaVacia()){
-                                            JOptionPane.showMessageDialog(null, "Se ha eliminado un nodo con el valor: "
+                                            JOptionPane.showMessageDialog(null, "Se ha eliminado un elemento con el valor: "
                                             + pila.EliminarNodo());
                                         }else {
                                             JOptionPane.showMessageDialog(null, "La pila esta vacia.");
@@ -81,8 +81,8 @@ public class Principal {
                         do {/*
                                 opcion3 = JOptionPane.showOptionDialog(null,
                                         "                                                                      Menú\n\n"
-                                        + "1. Insertar un nodo\n"
-                                        + "2. Extraer un nodo\n"
+                                        + "1. Insertar un elemento\n"
+                                        + "2. Extraer un elemento\n"
                                         + "3. Mostrar contenido de la Cola\n"
                                         + "4. Regresar.\n\n", 
                                         "Operaciones con Cola Simple",                                         JOptionPane.DEFAULT_OPTION, 
@@ -94,12 +94,12 @@ public class Principal {
                                 switch (opcion3) {
                                     case 0:
                                         nodo_informacion = Integer.parseInt(JOptionPane.showInputDialog(null,
-                                                "Porfavor ingresa el valor a guardar en el nodo."));
+                                                "Porfavor ingresa el valor a guardar."));
                                         cola.Insertar(nodo_informacion);
                                         break;
                                     case 1:
                                         if (!cola.ColaVacia()) {
-                                            JOptionPane.showMessageDialog(null, "Se extrajo un nodo con el valor: " 
+                                            JOptionPane.showMessageDialog(null, "Se extrajo un elemento con el valor: " 
                                                     + cola.Extraer());
                                         } else {
                                             JOptionPane.showMessageDialog(null, "La cola esta vacía");
@@ -122,8 +122,8 @@ public class Principal {
                                 opcion4 = JOptionPane.showOptionDialog(null,
                                         "                                                                           Menú\n\n"
                                         + "0. Ingrese el tamano del arreglo\n"
-                                        + "1. Insertar un nodo\n"
-                                        + "2. Extraer un nodo\n"
+                                        + "1. Insertar un elemento\n"
+                                        + "2. Extraer un elemento\n"
                                         + "3. Mostrar contenido de la Cola Circular\n"
                                         + "4. Regresar.\n\n", 
                                         "Operaciones con Cola Circular",                                         JOptionPane.DEFAULT_OPTION, 
@@ -140,12 +140,12 @@ public class Principal {
                                         break;
                                     case 1:
                                         nodo_information = Integer.parseInt(JOptionPane.showInputDialog(null,
-                                                "Porfavor ingresa el valor a guardar en el nodo."));
+                                                "Porfavor ingresa el valor a guardar."));
                                         colaC.Agregar(nodo_information);
                                         break;
                                     case 2:
                                         if (!colaC.ColaCircularVacia()) {
-                                            JOptionPane.showMessageDialog(null, "Se extrajo un nodo con el valor: " 
+                                            JOptionPane.showMessageDialog(null, "Se extrajo un elemento con el valor: " 
                                                     + colaC.Extraer());
                                         } else {
                                             JOptionPane.showMessageDialog(null, 
