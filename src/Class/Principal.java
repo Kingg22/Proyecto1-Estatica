@@ -5,14 +5,14 @@ import javax.swing.JOptionPane;
 public class Principal {
     public static void main(String[] args) {
         // declaracion de variables
-        int opcion1 = 0, opcion2 = 0, opcion3 = 0, opcion4 = 0, nodo_information, nodo_informacion = 0;  //nodo = 0, ;
+        int opcion1 = 0, opcion2 = 0, opcion3 = 0, opcion4 = 0, nodo_information, nodo_informacion = 0, nodo = 0, size;
         String opcion5[] = { "Presentacion", "Pila", "Cola Simple", "Cola Circular", "Salir"};
-        String opcion6[] = { "Insertar", "Eliminar", "Mostrar Pila", "Regresar" };
+        String opcion6[] = { "Ingrese el tamano", "Insertar", "Eliminar", "Mostrar Pila", "Regresar" };
         String opcion7[] = { "Ingrese el tamano", "Insertar", "Eliminar", "Mostrar Cola Simple", "Regresar" };
         String opcion8[] = { "Ingrese el tamano", "Insertar", "Eliminar", "Mostrar Cola Circular", "Regresar"};
 
         // creacion de objetos de todas las clases
-        //Pila pila = new Pila();
+        Pila pila = new Pila();
         Cola cola = new Cola();
         Circular colaC = new Circular();
         
@@ -38,6 +38,7 @@ public class Principal {
                         do {
                                 opcion2 = JOptionPane.showOptionDialog(null,
                                         "                                      Menú\n\n"
+                                        + "0. Ingresar tamano arreglo\n"
                                         + "1. Insertar un elemento\n"
                                         + "2. Eliminar un elemento\n"
                                         + "3. Mostrar contenido de la Pila\n"
@@ -48,34 +49,41 @@ public class Principal {
                                         null, 
                                         opcion6, 
                                         "");
-                                /* 
                                 switch (opcion2) {
                                     case 0:
+                                        size = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                                "Porfavor ingresa el tamaño del arreglo"));
+                                        pila.AsignarTamano(size);
+                                        break;
+                                    case 1:
                                         nodo = Integer.parseInt(JOptionPane.showInputDialog(null, 
                                                 "Porfavor ingresa el valor a guardar"));
                                         pila.InsertarNodo(nodo);
                                         break;
-                                    case 1:
+                                    case 2:
                                         if(!pila.PilaVacia()){
                                             JOptionPane.showMessageDialog(null, "Se ha eliminado un elemento con el valor: "
                                             + pila.EliminarNodo());
                                         }else {
-                                            JOptionPane.showMessageDialog(null, "La pila esta vacia.");
+                                            JOptionPane.showMessageDialog(null,
+                                            "Subdesbordamiento - Pila vacía. No hay elementos para eliminar.",
+                                            "Error",
+                                            JOptionPane.ERROR_MESSAGE);
                                         }
                                         break;
-                                    case 2:
+                                    case 3:
                                         pila.MostrarValores();
                                         break;
                                         
-                                    case 3:
-                                        opcion2 = 8;
+                                    case 4:
+                                        opcion2 = 5;
                                         break;
                                         
                                     default:
                                         JOptionPane.showMessageDialog(null, "Opción incorrecta, vuelve intentar nuevamente.");
                                         break;
-                                }*/
-                        } while (opcion2 != 8);
+                                }
+                        } while (opcion2 != 5);
                         break;
                     case 2:
                         do {
@@ -94,7 +102,7 @@ public class Principal {
                 
                                 switch (opcion3) {
                                     case 0:
-                                        int size = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        size = Integer.parseInt(JOptionPane.showInputDialog(null,
                                                 "Porfavor ingresa el tamaño del arreglo"));
                                         cola.AsignarTamano(size);
                                         break;
@@ -140,7 +148,7 @@ public class Principal {
                 
                                 switch (opcion4) {
                                     case 0:
-                                        int size = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        size = Integer.parseInt(JOptionPane.showInputDialog(null,
                                                 "Porfavor ingresa el tamaño del arreglo"));
                                         colaC.AsignarTamano(size);
                                         break;
