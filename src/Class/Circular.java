@@ -3,8 +3,7 @@ package Class;
 import javax.swing.JOptionPane;
 
 public class Circular {
-    private int punteroInicial, punteroFinal, cantidadAgregados, tamano;
-    private int [] elementos;
+    private int punteroInicial, punteroFinal, cantidadAgregados, tamano, elementos[];
     
     // Constructor que nos da el tamaño del arreglo
     public void AsignarTamano(int size) {
