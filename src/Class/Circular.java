@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class Circular {
     private int punteroInicial, punteroFinal, cantidadAgregados, tamano, elementos[];
     
-    // Constructor que nos da el tamaño del arreglo
+    // metodo que nos da el tamaño del arreglo
     public void AsignarTamano(int size) {
         tamano = size;
         elementos = new int[tamano];
@@ -36,18 +36,16 @@ public class Circular {
         if (!ColaCircularLlena()) {
             elementos[CalcularPosicionNewElement()] = numero;
             cantidadAgregados++;
-            if (punteroFinal < tamano) {
-                punteroFinal++;
-            } else {
-                punteroFinal = 0;
-            }
+            punteroFinal = (punteroFinal + 1) % tamano;
         } else {
-            JOptionPane.showMessageDialog(null, 
-            "Desbordamiento - Cola llena. No puede ingresar el numero " + numero, 
-            "Error", 
-            JOptionPane.ERROR_MESSAGE);
+            // Si la cola está llena, el nuevo elemento se agrega en la posición 0
+            elementos[0] = numero;
+            punteroFinal = 1; // Actualizamos punteroFinal a 1
+            punteroInicial = 0; // También ajustamos punteroInicial a 0
+            cantidadAgregados++;
         }
     }
+    
     public int Extraer() {
         if (!ColaCircularVacia()) {
             int informacion = elementos [punteroInicial];
@@ -60,23 +58,30 @@ public class Circular {
     }
     // Método para imprimir el contenido de la cola circular
     public void imprimirColaCircular() {
-        String colaCircularInvertida = "";
-        
+        String colaCircular = "";
+
         if (!ColaCircularVacia()) {
-            for  (int i = (punteroFinal - 1 + tamano) % tamano; i != punteroInicial; i = (i - 1 + tamano) % tamano) {
-                colaCircularInvertida += elementos[i] + " ";
-            }
+            int indiceActual = punteroInicial;
+            do {
+                colaCircular += elementos[indiceActual] + " ";
+                indiceActual = (indiceActual + 1) % tamano;
+            } while (indiceActual != punteroFinal);
+
+            // Agregar el último elemento
+            colaCircular += elementos[punteroFinal];
         }
+
         if (ColaCircularVacia()) {
             JOptionPane.showMessageDialog(null, 
-            colaCircularInvertida + "\nFrente: 0\n Final: 0",         
-            "Cola Circular", 
-            JOptionPane.PLAIN_MESSAGE);
+                    "Cola Circular Vacia" + "\nFrente: 0\nFinal: 0",         
+                    "Cola Circular", 
+                    JOptionPane.PLAIN_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, 
-            colaCircularInvertida + "\nFrente: " +  punteroInicial + "\nFinal: " + punteroFinal,         
-            "Cola Circular", 
-            JOptionPane.PLAIN_MESSAGE);
+                    colaCircular + "\nFrente: " + punteroInicial + "\nFinal: " + punteroFinal,         
+                    "Cola Circular", 
+                    JOptionPane.PLAIN_MESSAGE);
         }
     }
+
 }
