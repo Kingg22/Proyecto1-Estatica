@@ -42,6 +42,7 @@ public class Cola {
     public int Extraer() {
         if (!ColaVacia()) {
             int informacion = cola [punteroFrente];
+            cola[punteroFrente] = 0;
             CalcularNuevaPosicionInicial();
             agregados--;
             return informacion;
@@ -54,14 +55,9 @@ public class Cola {
         String colaSimple = "";
     
         if (!ColaVacia()) {
-            int indiceActual = punteroFrente;
-            do {
-                colaSimple += cola[indiceActual] + " ";
-                indiceActual = (indiceActual + 1) % tamano;
-            } while (indiceActual != punteroFin);
-    
-            // Agregar el último elemento
-            colaSimple += cola[punteroFin];
+            for (int i = 0; i < cola.length; i++) {
+                colaSimple += cola[i] + " ";
+            }
         }
     
         if (ColaVacia()) {
@@ -75,6 +71,5 @@ public class Cola {
                     "Cola Simple",
                     JOptionPane.PLAIN_MESSAGE);
         }
-    }
-    
+    }    
 }
