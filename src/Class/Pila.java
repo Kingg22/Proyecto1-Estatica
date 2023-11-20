@@ -53,7 +53,7 @@ public class Pila {
         }
 
         JOptionPane.showMessageDialog(null,
-                lista.toString() + "Tope: " + tope,
+                lista.toString() + "\nTope: " + tope,
                 "Pila",
                 JOptionPane.PLAIN_MESSAGE);
     }
