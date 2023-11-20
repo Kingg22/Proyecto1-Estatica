@@ -135,7 +135,6 @@ public class Principal {
                             do {
                                     opcion3 = JOptionPane.showOptionDialog(null,
                                             "                                                                      Menú\n\n"
-                                            + "0. Ingrese el tamano del arreglo\n"
                                             + "1. Insertar un elemento\n"
                                             + "2. Extraer un elemento\n"
                                             + "3. Mostrar contenido de la Cola\n"
