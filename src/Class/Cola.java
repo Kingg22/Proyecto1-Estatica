@@ -9,7 +9,7 @@ public class Cola {
     public void AsignarTamano(int size) {
         max = size;
         cola = new int[size];
-        frente = nfinal = 0;
+        frente = nfinal = -1;
     }
 
     public boolean ColaLlena() {

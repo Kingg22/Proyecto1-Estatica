@@ -9,7 +9,7 @@ public class Circular {
     public void AsignarTamano(int size) {
         max = size;
         colaC = new int[max];
-        frente = nFinal = 0;
+        frente = nFinal = -1;
     }
 
     // metodo que verifica si la cola esta vacia
