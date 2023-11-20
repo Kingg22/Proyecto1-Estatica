@@ -3,22 +3,22 @@ package Class;
 import javax.swing.JOptionPane;
 
 public class Cola {
-    private int punteroFrente, punteroFin, agregados, max, cola[];
+    private int frente, nfinal, agregados, max, cola[];
     
     // metodo que asigna el tamaño del arreglo
     public void AsignarTamano(int size) {
         max = size;
         cola = new int[size];
-        punteroFrente = punteroFin = agregados = 0;
+        frente = nfinal = agregados = 0;
     }
     // metodo que calcula que posicion se coloca el nuevo elemento
     public int CalcularPosicionNewElement() {
-        return (punteroFrente + agregados) % max;
+        return (frente + agregados) % max;
     }
     
     // metodo que calcula la nnueva posicion inicial
     public void CalcularNuevaPosicionInicial() {
-        punteroFrente = (punteroFrente + 1) % max;
+        frente = (frente + 1) % max;
     }
 
     public boolean ColaLlena() {
@@ -31,7 +31,7 @@ public class Cola {
        if (!ColaLlena()) {
             cola [CalcularPosicionNewElement()] = dato;
             agregados++;
-            punteroFin = (punteroFin + 1) % max;
+            nfinal = (nfinal + 1) % max;
        } else {
         JOptionPane.showMessageDialog(null, 
             "Desbordamiento - Cola llena. No puede ingresar el numero " + dato, 
@@ -41,8 +41,8 @@ public class Cola {
     }
     public int Extraer() {
         if (!ColaVacia()) {
-            int informacion = cola [punteroFrente];
-            cola[punteroFrente] = 0;
+            int informacion = cola [frente];
+            cola[frente] = 0;
             CalcularNuevaPosicionInicial();
             agregados--;
             return informacion;
@@ -67,7 +67,7 @@ public class Cola {
                     JOptionPane.PLAIN_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null,
-                    colaSimple + "\nFrente: " + punteroFrente + "\nFinal: " + punteroFin,
+                    colaSimple + "\nFrente: " + frente + "\nFinal: " + nfinal,
                     "Cola Simple",
                     JOptionPane.PLAIN_MESSAGE);
         }
