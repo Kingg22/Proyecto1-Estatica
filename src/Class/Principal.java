@@ -166,7 +166,10 @@ public class Principal {
                                                 JOptionPane.showMessageDialog(null, "Se extrajo un elemento con el valor: " 
                                                         + cola.Extraer());
                                             } else {
-                                                JOptionPane.showMessageDialog(null, "La cola esta vacía");
+                                                JOptionPane.showMessageDialog(null, 
+                                                "Error. Subdesbordamiento - Cola Vacia", 
+                                                "Error", 
+                                                JOptionPane.ERROR_MESSAGE);
                                             }
                                             break;
                                         case 2:

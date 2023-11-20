@@ -30,6 +30,9 @@ public class Circular {
                 nFinal++;
             }
             colaC[nFinal] = numero;
+            if (frente == -1) {
+                frente = 0;
+            }
         } else {
             JOptionPane.showMessageDialog(null, 
             "Desbordamiento - Cola llena. No puede ingresar el numero " + numero, 
@@ -41,10 +44,11 @@ public class Circular {
     public int Extraer() {
         if (!ColaCircularVacia()) {
             int informacion = colaC [frente];
+            colaC[frente] = 0;
             if (frente == nFinal) {
                 frente = nFinal = -1;
             } else {
-                if (ColaCircularLlena()) {
+                if (frente == max - 1) {
                     frente = 0;
                 } else {
                     frente++;
@@ -60,7 +64,7 @@ public class Circular {
         String colaCircular = "";
 
         if (!ColaCircularVacia()) {
-            for (int i = 0; i < colaCircular.length(); i++) {
+            for (int i = 0; i < colaC.length; i++) {
                 colaCircular += colaC[i] + " ";
             }
         }

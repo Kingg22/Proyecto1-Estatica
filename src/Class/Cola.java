@@ -35,9 +35,9 @@ public class Cola {
     public int Extraer() {
         if (!ColaVacia()) {
             int informacion = cola [frente];
+            cola[frente] = 0;
             if (frente == nfinal) {
-                frente = -1;
-                nfinal = -1;
+                frente = nfinal = -1;
             } else {
                 frente++;
             }
@@ -58,7 +58,7 @@ public class Cola {
     
         if (ColaVacia()) {
             JOptionPane.showMessageDialog(null,
-                    colaSimple + "\nFrente: -1\nFinal: -1",
+                    "Cola Vacia" + "\nFrente: -1\nFinal: -1",
                     "Cola Simple",
                     JOptionPane.PLAIN_MESSAGE);
         } else {

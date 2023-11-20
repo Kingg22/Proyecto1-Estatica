@@ -38,6 +38,7 @@ public class Pila {
     public int EliminarNodo() {
         if (!PilaVacia()) {
             int auxiliar = pila[tope];
+            pila[tope] = 0;
             tope--;
             return auxiliar;
         } else {
@@ -48,13 +49,23 @@ public class Pila {
     // Método para mostrar el contenido de la pila
     public void MostrarValores() {
         StringBuilder lista = new StringBuilder();
-        for (int i = 0; i <= tope; i++) {
-            lista.append(pila[i]).append("\n");
-        }
 
-        JOptionPane.showMessageDialog(null,
+        if (!PilaVacia()) {
+            for (int i = 0; i <= tope; i++) {
+                lista.append(pila[i]).append("\n");
+            }
+        }
+            
+        if (PilaVacia()) {
+            JOptionPane.showMessageDialog(null,
+                "Pila Vacia" + "\nTope: " + tope,
+                "Pila",
+            JOptionPane.PLAIN_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null,
                 lista.toString() + "\nTope: " + tope,
                 "Pila",
                 JOptionPane.PLAIN_MESSAGE);
+        }
     }
 }
