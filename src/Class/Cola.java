@@ -62,7 +62,7 @@ public class Cola {
     
         if (ColaVacia()) {
             JOptionPane.showMessageDialog(null,
-                    colaSimple + "\nFrente: 0\nFinal: 0",
+                    colaSimple + "\nFrente: -1\nFinal: -1",
                     "Cola Simple",
                     JOptionPane.PLAIN_MESSAGE);
         } else {

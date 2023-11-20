@@ -6,6 +6,7 @@ public class Principal {
     public static void main(String[] args) {
         // declaracion de variables
         int opcion1 = 0, opcion2 = 0, opcion3 = 0, opcion4 = 0, nodo_information, nodo_informacion = 0, nodo = 0, size;
+        String input;
         String opcion5[] = { "Presentacion", "Pila", "Cola Simple", "Cola Circular", "Salir"};
         String opcion6[] = { "Ingrese el tamano", "Insertar", "Eliminar", "Mostrar Pila", "Regresar" };
         String opcion7[] = { "Ingrese el tamano", "Insertar", "Eliminar", "Mostrar Cola Simple", "Regresar" };
@@ -51,14 +52,32 @@ public class Principal {
                                         "");
                                 switch (opcion2) {
                                     case 0:
-                                        size = Integer.parseInt(JOptionPane.showInputDialog(null,
-                                                "Porfavor ingresa el tamaño del arreglo"));
-                                        pila.AsignarTamano(size);
+                                        input = JOptionPane.showInputDialog(null,
+                                                "Por favor ingresa el tamaño del arreglo");
+                                        if (input != null) {
+                                                size = Integer.parseInt(input);
+                                                pila.AsignarTamano(size);
+                                        } else {
+                                            // El usuario canceló o cerró el cuadro de diálogo
+                                            JOptionPane.showMessageDialog(null,
+                                                    "Operación cancelada por el usuario.",
+                                                    "Aviso",
+                                                    JOptionPane.INFORMATION_MESSAGE);
+                                        }
                                         break;
                                     case 1:
-                                        nodo = Integer.parseInt(JOptionPane.showInputDialog(null, 
-                                                "Porfavor ingresa el valor a guardar"));
-                                        pila.InsertarNodo(nodo);
+                                        input = JOptionPane.showInputDialog(null,
+                                                "Por favor ingresa el valor a guardar");
+                                        if (input != null) {
+                                            nodo = Integer.parseInt(input);
+                                            pila.InsertarNodo(nodo);
+                                        } else {
+                                            // El usuario canceló o cerró el cuadro de diálogo
+                                            JOptionPane.showMessageDialog(null,
+                                                    "Operación cancelada por el usuario.",
+                                                    "Aviso",
+                                                    JOptionPane.INFORMATION_MESSAGE);
+                                        }
                                         break;
                                     case 2:
                                         if(!pila.PilaVacia()){
@@ -102,14 +121,32 @@ public class Principal {
                 
                                 switch (opcion3) {
                                     case 0:
-                                        size = Integer.parseInt(JOptionPane.showInputDialog(null,
-                                                "Porfavor ingresa el tamaño del arreglo"));
-                                        cola.AsignarTamano(size);
+                                        input = JOptionPane.showInputDialog(null,
+                                                "Por favor ingresa el tamaño del arreglo");
+                                        if (input != null) {
+                                            size = Integer.parseInt(input);
+                                            cola.AsignarTamano(size);
+                                        } else {
+                                            // El usuario canceló o cerró el cuadro de diálogo
+                                            JOptionPane.showMessageDialog(null,
+                                                    "Operación cancelada por el usuario.",
+                                                    "Aviso",
+                                                    JOptionPane.INFORMATION_MESSAGE);
+                                        }
                                         break;
                                     case 1:
-                                        nodo_informacion = Integer.parseInt(JOptionPane.showInputDialog(null,
-                                                "Porfavor ingresa el valor a guardar."));
-                                        cola.Insertar(nodo_informacion);
+                                        input = JOptionPane.showInputDialog(null,
+                                                "Por favor ingresa el valor a guardar");
+                                        if (input != null) {
+                                            nodo_informacion = Integer.parseInt(input);
+                                            cola.Insertar(nodo_informacion);
+                                        } else {
+                                            // El usuario canceló o cerró el cuadro de diálogo
+                                            JOptionPane.showMessageDialog(null,
+                                                    "Operación cancelada por el usuario.",
+                                                    "Aviso",
+                                                    JOptionPane.INFORMATION_MESSAGE);
+                                        }
                                         break;
                                     case 2:
                                         if (!cola.ColaVacia()) {
@@ -148,14 +185,32 @@ public class Principal {
                 
                                 switch (opcion4) {
                                     case 0:
-                                        size = Integer.parseInt(JOptionPane.showInputDialog(null,
-                                                "Porfavor ingresa el tamaño del arreglo"));
-                                        colaC.AsignarTamano(size);
+                                        input = JOptionPane.showInputDialog(null,
+                                                "Por favor ingresa el tamaño del arreglo");
+                                        if (input != null) {
+                                            size = Integer.parseInt(input);
+                                            colaC.AsignarTamano(size);
+                                        } else {
+                                            // El usuario canceló o cerró el cuadro de diálogo
+                                            JOptionPane.showMessageDialog(null,
+                                                    "Operación cancelada por el usuario.",
+                                                    "Aviso",
+                                                    JOptionPane.INFORMATION_MESSAGE);
+                                        }
                                         break;
                                     case 1:
-                                        nodo_information = Integer.parseInt(JOptionPane.showInputDialog(null,
-                                                "Porfavor ingresa el valor a guardar."));
-                                        colaC.Agregar(nodo_information);
+                                        input = JOptionPane.showInputDialog(null,
+                                                "Por favor ingresa el tamaño del arreglo");
+                                        if (input != null) {
+                                            nodo_information = Integer.parseInt(input);
+                                            colaC.Agregar(nodo_information);
+                                        } else {
+                                            // El usuario canceló o cerró el cuadro de diálogo
+                                            JOptionPane.showMessageDialog(null,
+                                                    "Operación cancelada por el usuario.",
+                                                    "Aviso",
+                                                    JOptionPane.INFORMATION_MESSAGE);
+                                        }
                                         break;
                                     case 2:
                                         if (!colaC.ColaCircularVacia()) {
