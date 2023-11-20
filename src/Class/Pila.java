@@ -3,11 +3,11 @@ package Class;
 import javax.swing.JOptionPane;
 
 public class Pila {
-    private int tope, tamano, pila [];
+    private int tope, max, pila [];
 
     public void AsignarTamano(int size) {
-        tamano = size;
-        pila = new int[tamano];
+        max = size;
+        pila = new int[max];
         tope = -1; // Inicializar el tope en -1 para indicar una pila vacía
     }
 
@@ -18,7 +18,7 @@ public class Pila {
 
     // Método para saber cuando la pila está llena
     public boolean PilaLlena() {
-        return tope == tamano - 1;
+        return tope == max - 1;
     }
 
     // Método para insertar un elemento en la pila
