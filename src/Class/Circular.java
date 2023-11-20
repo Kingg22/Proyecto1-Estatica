@@ -3,55 +3,53 @@ package Class;
 import javax.swing.JOptionPane;
 
 public class Circular {
-    private int punteroInicial, punteroFinal, cantidadAgregados, tamano, colaC[];
+    private int frente, nFinal, max, colaC[];
     
     // metodo que nos da el tamaño del arreglo
     public void AsignarTamano(int size) {
-        tamano = size;
-        colaC = new int[tamano];
-        punteroInicial = punteroFinal = cantidadAgregados = 0;
-    }
-
-    // metodo que calcula que posicion se coloca el nuevo elemento
-    public int CalcularPosicionNewElement() {
-        return (punteroInicial + cantidadAgregados) % tamano;
-    }
-
-    // metodo que calcula la nnueva posicion inicial
-    public void CalcularNuevaPosicionInicial() {
-        punteroInicial = (punteroInicial + 1) % tamano;
+        max = size;
+        colaC = new int[max];
+        frente = nFinal = 0;
     }
 
     // metodo que verifica si la cola esta vacia
     public boolean ColaCircularVacia() {
-        return (cantidadAgregados == 0);
+        return (frente == -1 && nFinal == -1);
     }
 
     // metodo que verifica si la cola esta llena
     public boolean ColaCircularLlena() {
-        return (cantidadAgregados == tamano);
+        return (((nFinal == max - 1) && frente == 0) || nFinal + 1 == frente);
      }
 
     public void Agregar(int numero) {
         if (!ColaCircularLlena()) {
-            colaC[CalcularPosicionNewElement()] = numero;
-            cantidadAgregados++;
-            punteroFinal = (punteroFinal + 1) % tamano;
+            if (nFinal == max - 1) {
+                nFinal = 0;
+            } else {
+                nFinal++;
+            }
+            colaC[nFinal] = numero;
         } else {
-            // Si la cola está llena, el nuevo elemento se agrega en la posición 0
-            colaC[0] = numero;
-            punteroFinal = 1; // Actualizamos punteroFinal a 1
-            punteroInicial = 0; // También ajustamos punteroInicial a 0
-            cantidadAgregados++;
+            JOptionPane.showMessageDialog(null, 
+            "Desbordamiento - Cola llena. No puede ingresar el numero " + numero, 
+            "Error", 
+            JOptionPane.ERROR_MESSAGE);
         }
     }
     
     public int Extraer() {
         if (!ColaCircularVacia()) {
-            int informacion = colaC [punteroInicial];
-            colaC[punteroInicial] = 0;
-            CalcularNuevaPosicionInicial();
-            cantidadAgregados--;
+            int informacion = colaC [frente];
+            if (frente == nFinal) {
+                frente = nFinal = -1;
+            } else {
+                if (ColaCircularLlena()) {
+                    frente = 0;
+                } else {
+                    frente++;
+                }
+            }
             return informacion;
         } else {
             return Integer.MIN_VALUE;
@@ -62,7 +60,7 @@ public class Circular {
         String colaCircular = "";
 
         if (!ColaCircularVacia()) {
-            for (int i = 0; i < colaC.length; i++) {
+            for (int i = 0; i < colaCircular.length(); i++) {
                 colaCircular += colaC[i] + " ";
             }
         }
@@ -74,7 +72,7 @@ public class Circular {
                     JOptionPane.PLAIN_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, 
-                    colaCircular + "\nFrente: " + punteroInicial + "\nFinal: " + punteroFinal,         
+                    colaCircular + "\nFrente: " + frente + "\nFinal: " + nFinal,         
                     "Cola Circular", 
                     JOptionPane.PLAIN_MESSAGE);
         }
