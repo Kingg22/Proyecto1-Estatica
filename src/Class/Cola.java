@@ -3,35 +3,28 @@ package Class;
 import javax.swing.JOptionPane;
 
 public class Cola {
-    private int frente, nfinal, agregados, max, cola[];
+    private int frente, nfinal, max, cola[];
     
     // metodo que asigna el tamaño del arreglo
     public void AsignarTamano(int size) {
         max = size;
         cola = new int[size];
-        frente = nfinal = agregados = 0;
-    }
-    // metodo que calcula que posicion se coloca el nuevo elemento
-    public int CalcularPosicionNewElement() {
-        return (frente + agregados) % max;
-    }
-    
-    // metodo que calcula la nnueva posicion inicial
-    public void CalcularNuevaPosicionInicial() {
-        frente = (frente + 1) % max;
+        frente = nfinal = 0;
     }
 
     public boolean ColaLlena() {
-        return (agregados == max);
+        return nfinal == max - 1;
     }
     public boolean ColaVacia() {
-        return (agregados == 0);
+        return (frente == -1 && nfinal == -1);
     }
     public void Insertar(int dato) {
        if (!ColaLlena()) {
-            cola [CalcularPosicionNewElement()] = dato;
-            agregados++;
-            nfinal = (nfinal + 1) % max;
+            nfinal++;
+            cola [nfinal] = dato;
+            if (nfinal == 0) {
+                frente = 0;
+            }
        } else {
         JOptionPane.showMessageDialog(null, 
             "Desbordamiento - Cola llena. No puede ingresar el numero " + dato, 
@@ -42,9 +35,12 @@ public class Cola {
     public int Extraer() {
         if (!ColaVacia()) {
             int informacion = cola [frente];
-            cola[frente] = 0;
-            CalcularNuevaPosicionInicial();
-            agregados--;
+            if (frente == nfinal) {
+                frente = -1;
+                nfinal = -1;
+            } else {
+                frente++;
+            }
             return informacion;
         } else {
             return Integer.MIN_VALUE;
