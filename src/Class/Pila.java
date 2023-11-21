@@ -3,7 +3,7 @@ package Class;
 import javax.swing.JOptionPane;
 
 public class Pila {
-    private int tope, max, pila [];
+    private int tope, max, pila[];
 
     public void AsignarTamano(int size) {
         max = size;
@@ -55,17 +55,17 @@ public class Pila {
                 lista.append(pila[i]).append("\n");
             }
         }
-            
+
         if (PilaVacia()) {
             JOptionPane.showMessageDialog(null,
-                "Pila Vacia" + "\nTope: " + tope,
-                "Pila",
-            JOptionPane.PLAIN_MESSAGE);
+                    "Pila Vacia" + "\nTope: " + tope,
+                    "Pila",
+                    JOptionPane.PLAIN_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null,
-                lista.toString() + "\nTope: " + tope,
-                "Pila",
-                JOptionPane.PLAIN_MESSAGE);
+                    "Pila:\n4" + lista.toString() + "\nTope: " + tope,
+                    "Pila",
+                    JOptionPane.PLAIN_MESSAGE);
         }
     }
 }
