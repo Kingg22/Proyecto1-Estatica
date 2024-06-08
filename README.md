@@ -1,3 +1,5 @@
+Este proyecto fue archivado ya que fue terminado con éxito. 
+
 ## Enunciado del problema
 
 En este proyecto se desea implementar las pilas, colas y colas circulares de forma estatica con el uso de la estructura arreglos. Tiene que tener un menu principal con las opciones: {presentación, operaciones con pila, operaciones con cola simple, operaciones con cola circular, salir}
